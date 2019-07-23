@@ -1,13 +1,11 @@
-# nyc_trips
-# Description
-the dataset of taxi trips in New York https://www.kaggle.com/kentonnlp/2014-new-york-city-taxi-trips
-1. notebook with descriptive queries in Pandas and visualize the results 
-2. Expose the result in a web dashboard using Dash (https://dash.plot.ly/)
+# 2014 New York city taxi trips
 
-how to run project
-1. with notebook
-download jupyter notebook and open it
-2. with dash file
-at root folder, run: " python app.py "
+## 1. Collecting data:
+Get the data from kaggle: 
+https://www.kaggle.com/kentonnlp/2014-new-york-city-taxi-trips
 
-*note: you must to download dataset follow link https://www.kaggle.com/kentonnlp/2014-new-york-city-taxi-trips and replace filename in project to your path file
+## 2. Data Analytics and Visualization:
+[Notebook](NYC_trips.ipynb)
+
+## 3. Expose result with dash:
+python app.py

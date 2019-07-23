@@ -9,3 +9,5 @@ how to run project
 download jupyter notebook and open it
 2. with dash file
 at root folder, run: " python app.py "
+
+*note: you must to download dataset follow link https://www.kaggle.com/kentonnlp/2014-new-york-city-taxi-trips and replace filename in project to your path file

@@ -9,3 +9,5 @@ https://www.kaggle.com/kentonnlp/2014-new-york-city-taxi-trips
 
 ## 3. Expose result with dash:
 python app.py
+
+*note: please download your own dataset and replace our path file dataset with your path file

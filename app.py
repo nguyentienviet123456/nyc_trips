@@ -14,13 +14,10 @@ df["pickup_datetime"]= pd.to_datetime(df["pickup_datetime"])
 df["dropoff_datetime"]= pd.to_datetime(df["dropoff_datetime"])
 df["pickup_dayofweek"] = df.pickup_datetime.dt.dayofweek
 df["pickup_weekday_name"] = df.pickup_datetime.dt.weekday_name
-df["pickup_hour"] = df.pickup_datetime.dt.hour
-df["pickup_month"] = df.pickup_datetime.dt.month
 df["trip_duration"] = df.dropoff_datetime -  df.pickup_datetime
 df["trip_duration"] = df["trip_duration"].dt.total_seconds()
-df_agg = df.groupby('pickup_weekday_name')['trip_duration'].aggregate(np.sum).reset_index()
-list_day = df_agg['pickup_weekday_name'].tolist()
-trip_duration = df_agg['trip_duration'].tolist()
+df_agg_cmt = df[df["vendor_id"] == "CMT"].groupby('pickup_weekday_name')['trip_duration'].aggregate(np.sum).reset_index()
+df_agg_vts = df[df["vendor_id"] == "VTS"].groupby('pickup_weekday_name')['trip_duration'].aggregate(np.sum).reset_index()
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
 
@@ -32,10 +29,11 @@ app.layout = html.Div(children=[
         id='example-graph',
         figure={
             'data': [
-                {'x': list_day, 'y': trip_duration, 'type': 'bar', 'name': 'DEMO'},
+                {'x': df_agg_cmt['pickup_weekday_name'].tolist(), 'y': df_agg_cmt['trip_duration'].tolist(), 'type': 'bar', 'name': 'CMT'},
+                {'x': df_agg_vts['pickup_weekday_name'].tolist(), 'y': df_agg_vts['trip_duration'].tolist(),'type': 'bar', 'name': 'VTS'},
             ],
             'layout': {
-                'title': 'Dash Data Visualization'
+                'title': 'Distrubution of duration per day in week for 2 verdor'
             }
         }
     )

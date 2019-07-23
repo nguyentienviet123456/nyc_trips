@@ -33,7 +33,7 @@ app.layout = html.Div(children=[
                 {'x': df_agg_vts['pickup_weekday_name'].tolist(), 'y': df_agg_vts['trip_duration'].tolist(),'type': 'bar', 'name': 'VTS'},
             ],
             'layout': {
-                'title': 'Distrubution of duration per day in week for 2 verdor'
+                'title': 'Distrubution of trip duration group by day in week for 2 verdor'
             }
         }
     )
